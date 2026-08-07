@@ -1,17 +1,13 @@
 package com.cris318_dev.track_your_finances.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-@Entity
-@Table
+@MappedSuperclass
 public class AccountEntry {
     @Id
     @GeneratedValue
