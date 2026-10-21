@@ -19,26 +19,23 @@ public class User {
     String firstName;
     String lastName;
     LocalDateTime dateOfBirth;
-    int age;
     List<Account> accounts;
 
     public User() {
     }
 
-    public User(UUID id, String firstName, String lastName, LocalDateTime dateOfBirth, int age, List<Account> accounts) {
+    public User(UUID id, String firstName, String lastName, LocalDateTime dateOfBirth, List<Account> accounts) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.age = age;
         this.accounts = accounts;
     }
 
-    public User(String firstName, String lastName, LocalDateTime dateOfBirth, int age, List<Account> accounts) {
+    public User(String firstName, String lastName, LocalDateTime dateOfBirth, List<Account> accounts) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.age = age;
         this.accounts = accounts;
     }
 
@@ -80,13 +77,6 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public List<Account> getAccounts() {
         return accounts;
@@ -103,7 +93,6 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                ", age=" + age +
                 ", accounts=" + accounts +
                 '}';
     }
@@ -112,11 +101,11 @@ public class User {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return age == user.age && Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(dateOfBirth, user.dateOfBirth) && Objects.equals(accounts, user.accounts);
+        return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(dateOfBirth, user.dateOfBirth) && Objects.equals(accounts, user.accounts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, dateOfBirth, age, accounts);
+        return Objects.hash(id, firstName, lastName, dateOfBirth, accounts);
     }
 }
